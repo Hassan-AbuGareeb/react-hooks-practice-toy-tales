@@ -1,10 +1,12 @@
 import React from "react";
 import ToyCard from "./ToyCard";
 
-function ToyContainer() {
-  return (
-    <div id="toy-collection">{/* Render the collection of ToyCards */}</div>
-  );
+function ToyContainer({ toys, onDonate }) {
+  const toyItems = toys.map((toy) => {
+    return <ToyCard key={toy.id} toy={toy} onDonate={onDonate} />;
+  });
+
+  return <div id="toy-collection">{toyItems}</div>;
 }
 
 export default ToyContainer;
